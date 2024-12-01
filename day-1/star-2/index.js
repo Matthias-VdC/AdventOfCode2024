@@ -24,11 +24,24 @@ fs.readFile("../input", "utf8", (err, data) => {
   const sortedList_1 = list_1.sort((a, b) => a - b);
   const sortedList_2 = list_2.sort((a, b) => a - b);
 
-  let total_diff = 0;
+  let similarityScore = 0;
+  let similarityList = {};
 
-  for (let i = 0; i < list_1.length; i++) {
-    total_diff += Math.abs(sortedList_1[i] - sortedList_2[i]);
+  list_1.forEach((n1) => {
+    list_2.forEach((n2) => {
+      if (n1 === n2) {
+        if (!similarityList[n1]) {
+          similarityList[n1] = 1;
+        } else {
+          similarityList[n1] += 1;
+        }
+      }
+    });
+  });
+
+  for (const [key, value] of Object.entries(similarityList)) {
+    similarityScore += Number(key) * value;
   }
 
-  console.log(total_diff);
+  console.log(similarityScore);
 });
