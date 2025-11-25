@@ -8,4 +8,5 @@ https://www.adventofcode.com/
 | [Day 1](./day1) | JavaScript |
 | [Day 2](./day2) | Python |
 | [Day 3](./day3) | Rust |
+| [Day 4](./day4) | Haskell |
 
