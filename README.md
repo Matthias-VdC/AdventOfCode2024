@@ -9,4 +9,6 @@ https://www.adventofcode.com/
 | [Day 2](./day2) | Python |
 | [Day 3](./day3) | Rust |
 | [Day 4](./day4) | Haskell |
+| [Day 4](./day5) | Go |
+| [Day 4](./day6) | .NET |
 
