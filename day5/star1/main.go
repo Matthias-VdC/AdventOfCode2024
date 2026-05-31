@@ -2,11 +2,20 @@ package main
 
 import (
 	"fmt"
-	"rules/rules"
+	"io/ioutil"
+	"rules/mods"
+	"strings"
 )
 
 func main() {
 	fmt.Println("Hello world!")
-	message := rules.Hello("Matthias")
+	message := mods.Hello("Matthias")
 	fmt.Println(message)
+	content, err := ioutil.ReadFile("input")
+	if err != nil {
+		fmt.Println("Err")
+	}
+	fmt.Println(string(content))
+	strings.Split(string(content), "|")
+
 }
