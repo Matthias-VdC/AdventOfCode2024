@@ -24,7 +24,6 @@ main :: proc() {
 		mem.tracking_allocator_destroy(&track)
 	}
 
-
 	data, err := os.read_entire_file("input", context.allocator)
 	defer delete(data, context.allocator)
 	if err != nil {
@@ -35,6 +34,13 @@ main :: proc() {
 	lines := strings.split_lines(dataStr)
 	defer delete(lines, context.allocator)
 
+	coords := getStartCoords(lines)
+	fmt.println(dataStr)
+
+	fmt.printf("%c\n", lines[coords[1]][coords[0]])
+}
+
+getStartCoords :: proc(lines: []string) -> [2]int {
 	coords: [2]int
 	for line, y in lines {
 		for char, x in line {
@@ -43,6 +49,5 @@ main :: proc() {
 			}
 		}
 	}
-
-	fmt.println(coords)
+	return coords
 }
